@@ -57,9 +57,9 @@ test_cfg = dict(
     max_per_img=100)
 # dataset settings
 dataset_type = 'DocslayoutDataset'
-data_root = '../../input/datav270/'
+data_root = '../../input/dataset-doclayout-v270/'
 img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    mean=[248.6105641,  248.27063863, 248.34847155], std=[27.63137941, 28.1771886,  27.78716789], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
