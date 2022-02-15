@@ -60,6 +60,7 @@ def main():
     args = parse_args()
 
     cfg = Config.fromfile(args.config)
+    print(cfg)
     # set cudnn_benchmark
     if cfg.get('cudnn_benchmark', False):
         torch.backends.cudnn.benchmark = True
@@ -114,8 +115,8 @@ def main():
             CLASSES=datasets[0].CLASSES)
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
-    cfg_wandb = yaml.safe_load(cfg.dump())
-    run = wandb.init(project="doc_layout_v2.7", name="solov2_baseline", config=cfg, sync_tensorboard=True)
+    # cfg_wandb = yaml.safe_load(cfg.dump())
+    # run = wandb.init(project="doc_layout_v2.7", name="solov2_baseline", config=cfg, sync_tensorboard=True)
     train_detector(
         model,
         datasets,
