@@ -13,6 +13,8 @@ from mmdet.apis import set_random_seed, train_detector
 from mmdet.datasets import build_dataset
 from mmdet.models import build_detector
 from mmdet.utils import get_root_logger
+import wandb
+import yaml
 
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
@@ -112,6 +114,8 @@ def main():
             CLASSES=datasets[0].CLASSES)
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
+    cfg_wandb = yaml.safe_load(cfg.dump())
+    run = wandb.init(project="doc_layout_v2.7", name="solov2_baseline", config=cfg, sync_tensorboard=True)
     train_detector(
         model,
         datasets,
@@ -119,7 +123,7 @@ def main():
         distributed=distributed,
         validate=args.validate,
         timestamp=timestamp)
-
+    
 
 if __name__ == '__main__':
     main()
