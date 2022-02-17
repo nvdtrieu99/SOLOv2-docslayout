@@ -116,7 +116,7 @@ def main():
     # add an attribute for visualization convenience
     model.CLASSES = datasets[0].CLASSES
     # cfg_wandb = yaml.safe_load(cfg.dump())
-    run = wandb.init(project="doc_layout_v2.7", name="solov2_baseline", config=cfg, sync_tensorboard=True)
+    run = wandb.init(project="doc_layout_v2.7_22k", name="solov2_baseline", config=cfg, sync_tensorboard=True)
     train_detector(
         model,
         datasets,

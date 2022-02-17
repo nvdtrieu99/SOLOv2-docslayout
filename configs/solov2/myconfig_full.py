@@ -57,7 +57,7 @@ test_cfg = dict(
     max_per_img=100)
 # dataset settings
 dataset_type = 'DocslayoutDataset'
-data_root = '../../input/dataset-doclayout-v270/'
+data_root = '../../input/doclayout-22k-v27/'
 img_norm_cfg = dict(
     mean=[248.59754788, 248.25756053, 248.33532779], std=[25.44402269, 25.95625288, 25.59872952], to_rgb=True)
 train_pipeline = [
@@ -86,7 +86,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    imgs_per_gpu=2,
+    imgs_per_gpu=3,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
